@@ -1,0 +1,77 @@
+/* .white-box {
+	margin-left: 13rem;
+} */
+.double-box {
+	width: 100%;
+	height: 100%;
+}
+.double-box .double-2,
+.double-box .double-1 {
+	width: 50%;
+	height: 100%;
+	float: left;
+	text-align: center;
+	box-shadow: 0.1rem 0 0.1rem rgba(65,68,83,.3);
+}
+.double-box .double-2 img,
+.double-box .double-1 img {
+	display: block;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    margin: 1.5rem auto 1rem;
+}
+.double-box .double-2 .double-2-name,
+.double-box .double-1 .double-1-name {
+	display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: '方正中等线_GBK';
+    color: rgb(65, 68, 83);
+    margin-bottom: 0.8rem;
+}
+.double-box .double-2 ul li,
+.double-box .double-1 ul li {
+	display: inline-block;
+    margin: 0 0.8rem 0.8rem 0;
+}
+.double-box .double-2 ul li i,
+.double-box .double-1 ul li i {
+	color: rgba(65, 68, 83,.7);
+}
+.double-box .double-2 ul li span,
+.double-box .double-1 ul li span {
+	font-size: 0.8rem;
+    font-weight: 400;
+    font-family: '方正中等线_GBK';
+    color: rgb(65, 68, 83);
+}
+.double-box .double-2 .about-myself,
+.double-box .double-1 .about-myself {
+	width: 100%;
+    height: 12rem;
+    overflow: hidden;
+}
+.double-box .double-2 .about-myself p,
+.double-box .double-1 .about-myself p {
+	height: 12rem;
+	font-size: 0.9rem;
+    font-weight: 400;
+    font-family: '方正中等线_GBK';
+    color: rgb(65, 68, 83);
+    text-align: left;
+    text-indent: 2rem;
+    line-height: 1.2rem;
+    margin: 0px 2rem 0.5rem;
+}
+.double-box .double-2 input,
+.double-box .double-1 input {
+	width: 10rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    color: rgb(255,255,255);
+    background-color: rgb(0,160,233);
+    border: none;
+    margin: 0.8rem;
+    cursor:pointer;
+}

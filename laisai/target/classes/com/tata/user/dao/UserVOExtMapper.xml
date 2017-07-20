@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tata.user.dao.UserVOExtMapper">
+	<resultMap id="UserResultMap" type="com.tata.user.domain.UserVO">
+		<id column="userid" property="userid" jdbcType="INTEGER" />
+		<result column="usermail" property="usermail" jdbcType="VARCHAR" />
+		<result column="userpassword" property="userpassword" jdbcType="VARCHAR" />
+		<result column="usertruename" property="usertruename" jdbcType="VARCHAR" />
+		<result column="userpinyin" property="userpinyin" jdbcType="VARCHAR" />
+		<result column="userschool" property="userschool" jdbcType="VARCHAR" />
+		<result column="userdepartment" property="userdepartment"
+			jdbcType="VARCHAR" />
+		<result column="usermajor" property="usermajor" jdbcType="VARCHAR" />
+		<result column="usergrade" property="usergrade" jdbcType="VARCHAR" />
+		<result column="userstudentnumber" property="userstudentnumber"
+			jdbcType="VARCHAR" />
+		<result column="usersex" property="usersex" jdbcType="VARCHAR" />
+		<result column="usertel" property="usertel" jdbcType="VARCHAR" />
+		<result column="userheadimg" property="userheadimg" jdbcType="VARCHAR" />
+		<result column="userproperty" property="userproperty" jdbcType="VARCHAR" />
+		<result column="userintroduce" property="userintroduce"
+			jdbcType="VARCHAR" />
+		<result column="userisin" property="userisin" jdbcType="INTEGER" />
+		<result column="userprize" property="userprize" jdbcType="VARCHAR" />
+		<result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	 <resultMap id="ManagermessageResultMap" type="com.tata.managermessage.domain.ManagermessageVO">
+	    <id column="messageid" jdbcType="INTEGER" property="messageid" />
+	    <result column="messagecontent" jdbcType="VARCHAR" property="messagecontent" />
+	    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+	  </resultMap>
+	  <resultMap id="InvitationResultMap" type="com.tata.invitation.domain.InvitationVO" >
+    <id column="invitationid" property="invitationid" jdbcType="INTEGER" />
+    <result column="sendinviteid" property="sendinviteid" jdbcType="INTEGER" />
+    <result column="receiveinviteid" property="receiveinviteid" jdbcType="INTEGER" />
+    <result column="success" property="success" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+ 
+	<select id="selectByEmail" parameterType="java.lang.String"
+		resultMap="UserResultMap">
+		select * from user where usermail=#{usermail}
+	</select>
+	<select id="list" resultMap="UserResultMap">
+		select * from user
+	</select>
+	<insert id="insertUser" parameterType="com.tata.user.domain.UserVO">
+		insert into
+		user(userpassword,usermail) values(#{userpassword},#{usermail})
+	</insert>
+	<select id="listManagerMessage" resultMap="ManagermessageResultMap">
+		select *
+		from managermessage 
+		order by createtime desc
+	</select>
+	<select id="selectUserVOFromSingleEntry" resultMap="UserResultMap" parameterType="java.lang.Integer">
+		select
+		user.userid,usermail,userpassword,usertruename,userpinyin,userschool,userdepartment,
+		usermajor,usergrade,userstudentnumber,usersex,usertel,
+		userheadimg,userproperty,userintroduce,
+		userisin,userprize,user.createtime
+		from user, singleentry
+		where singleentry.userid = #{userid}
+		and user.userid = singleentry.userid
+	</select>
+	<insert id="insertSingleentry" parameterType="com.tata.singleentry.domain.SingleentryVO">
+		insert into
+		singleentry(userid, competitionid, createtime)
+		values(#{userid}, #{competitionid}, #{createtime})
+	</insert>
+	<select id="selectInvitation" parameterType="com.tata.invitation.domain.InvitationId" resultMap="InvitationResultMap">
+		select * 
+		from invitation
+		where sendinviteid=#{sendinviteid}
+		and receiveinviteid = #{receiveinviteid}
+	</select>
+	<select id="listTeacher" resultType="com.tata.teacher.domain.TeacherVO">
+		select *
+		from teacher
+	</select>
+	<select id="selectgroupteacheridBygroupid" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select groupteacherid
+		from thegroup
+		where groupid=#{groupid}
+	</select>
+	<insert id="insertInvitation" parameterType="com.tata.invitation.domain.InvitationVO">
+		insert into
+		invitation(sendinviteid, receiveinviteid, createtime)
+		values(#{sendinviteid}, #{receiveinviteid}, #{createtime})
+	</insert>
+	<select id="selectSendInviteidByreceiveInviteid" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select sendinviteid 
+		from invitation
+		where receiveinviteid = #{receiveinviteid}
+	</select>
+	<select id="selectsendapplicationidByfirstmemberid" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select sendapplicationid
+		from application
+		where firstmemberid = #{firstmemberid}
+	</select>
+	<select id="selectsendapplicationidBysecondmemberid" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select sendapplicationid
+		from application
+		where secondmemberid = #{secondmemberid}
+	</select>
+	<select id="isexist" parameterType="java.lang.Integer" resultType="com.tata.group.domain.ThegroupVO">
+		select * from thegroup
+		where groupfirstmemberid = #{userid}
+		or groupsecondmemberid  = #{userid}
+		or groupthirdmemberid  = #{userid}
+	</select>
+	<delete id="deletebysendinviteid" parameterType="java.lang.Integer">
+		delete from invitation
+		where sendinviteid = #{sendinviteid}
+	</delete>
+	<delete id="deletebyreceiveinviteid" parameterType="java.lang.Integer">
+		delete from invitation
+		where receiveinviteid = #{receiveinviteid}
+	</delete>
+	<delete id="deletebyuserid" parameterType="java.lang.Integer">
+		delete from application
+		where firstmemberid=#{userid}
+		or secondmemberid=#{userid}
+	</delete>
+	<delete id="deleteGroupByfirstmemberid" parameterType="java.lang.Integer">
+		delete from thegroup
+		where groupfirstmemberid = #{firstmemberid}
+	</delete>
+	<delete id="deletebysendapplicationid" parameterType="java.lang.Integer">
+		delete from application
+		where sendapplicationid=#{userid}
+	</delete>
+	<delete id="deletebyInvitation" parameterType="com.tata.invitation.domain.InvitationVO">
+		delete from invitation
+		where sendinviteid = #{sendinviteid} and receiveinviteid = #{receiveinviteid}
+	</delete>
+	<delete id="deletebyApplication" parameterType="com.tata.application.domain.ApplicationVO">
+		delete from application
+		where sendapplicationid=#{sendapplicationid} 
+		and firstmemberid = #{firstmemberid}
+	</delete>
+	<update id="insertThirdmember" parameterType="com.tata.group.domain.ThegroupVO" >
+		update thegroup
+		set groupthirdmemberid = #{groupthirdmemberid},
+		groupthirdtruename = #{groupthirdtruename},
+		groupthirdproperty = #{groupthirdproperty}
+		where groupfirstmemberid = #{groupfirstmemberid}
+		and groupsecondmemberid = #{groupsecondmemberid}
+	</update>
+	<insert id="insertTwain" parameterType="com.tata.group.domain.ThegroupVO">
+		insert into thegroup(groupfirstmemberid, groupfirsttruename, groupfirstproperty, groupsecondmemberid, groupsecondtruename, groupsecondproperty, createtime)
+		values(#{groupfirstmemberid},#{groupfirsttruename}, #{groupfirstproperty}, #{groupsecondmemberid}, #{groupsecondtruename}, #{groupsecondproperty}, #{createtime})
+	</insert>
+	<update id="updateUserisin" parameterType="java.lang.Integer">
+		update user
+		set userisin = 1
+		where userid=#{userid}
+	</update>
+	<update id="updateUserisinto0" parameterType="java.lang.Integer">
+		update user
+		set userisin = 0
+		where userid=#{userid}
+	</update>
+	<select id="checkfirstmemberid" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select firstmemberid
+		from application
+		where firstmemberid = #{userid}
+	</select>
+	<select id="checksecondmemberid" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select secondmemberid
+		from application
+		where secondmemberid = #{userid}
+	</select>
+	<update id="updategroupthirdmemberid" parameterType="com.tata.group.domain.ThegroupVO">
+		update thegroup
+		set groupthirdmemberid = #{groupthirdmemberid}
+		where groupfirstmemberid = #{groupfirstmemberid}
+		and groupsecondmemberid = #{groupsecondmemberid}
+	</update>
+	<update id="updateGroupteacher" parameterType="com.tata.group.domain.ThegroupVO">
+		update thegroup
+		set groupteacherid = #{groupteacherid}
+		where groupfirstmemberid = #{groupfirstmemberid}
+	</update>
+	<update id="updateGroupbaomingTeacher" parameterType="com.tata.groupbaoming.domain.GroupbaomingVO">
+		update groupbaoming
+		set userteacher1 = #{userteacher1}, userteacher2 = #{userteacher2}, userteacher3= #{userteacher3}
+		where groupid = #{groupid}
+	</update>
+	<update id="updateteacher" parameterType="com.tata.teacher.domain.TeacherVO">
+		update teacher
+		set remainnumber = #{remainnumber}
+		and yidainumber = #{yidainumber}
+		where groupteacherid = #{groupteacherid}
+	</update>
+	<select id="selectCompetition" parameterType="java.lang.Integer" resultType="com.tata.competition.domain.CompetitionVO">
+		select *
+		from competition
+		where competitionid=#{competitionid}
+	</select>
+	<update id="updatePasswordByMail" parameterType="com.tata.user.domain.UserVO">
+		update user
+		set userpassword = #{userpassword}
+		where usermail = #{usermail}
+	</update>
+	<select id="selectGroupbaomingVOByGroupid"  parameterType="java.lang.Integer" resultType="com.tata.groupbaoming.domain.GroupbaomingVO">
+		select *
+		from groupbaoming
+		where groupid=#{groupid}
+	</select>
+	<delete id="deleteGroupbaomingVOBYgroupid">
+		delete from groupbaoming
+		where groupid = #{groupid}
+	</delete>
+	<select id="showSearchUserVOPage" resultType="com.tata.user.domain.UserVO"> 
+		select * 
+		from user
+		where (usertruename like '%${keyword}%'
+		or userstudentnumber like '%${keyword}%')
+		and userisin = 0
+		order by convert(usertruename using GBK) asc
+		limit #{page.offset},#{page.pageSize}
+	</select>
+	<select id="countUserVOSearch" resultType="java.lang.Integer" >
+		select count(*)
+		from user
+		where (usertruename like '%${keyword}%'
+		or userstudentnumber like '%${keyword}%')
+		and userisin = 0
+	</select>
+	<select id="selectGroupidByFirstMemberIdFromGroup" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select groupid 
+		from thegroup
+		where groupfirstmemberid = #{userid}
+	</select>
+	<select id="selectGroupidBySecondMemberIdFromGroup" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select groupid 
+		from thegroup
+		where groupsecondmemberid = #{userid}
+	</select>
+	<select id="selectGroupidByThirdMemberIdFromGroup" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select groupid 
+		from thegroup
+		where groupthirdmemberid = #{userid}
+	</select>
+	
+</mapper>
+
+
+
+

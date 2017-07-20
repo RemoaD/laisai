@@ -1,0 +1,245 @@
+.right-box .right-left-box {
+	width: 70%;
+	height: 100%;
+	float: left;
+	border-right: 1px solid rgb(214,214,214);
+}
+.right-box .right-right-box {
+	width: 29.8%;
+	height: 100%;
+	float: left;
+}
+
+/*轮播图*/
+.slider-box {
+	width: 95%;
+	height: 50%;
+	margin: 1rem;
+	position: relative;
+}
+.slider-box .slider-main {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.slider-box .slider-main .slider-i {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 80%;
+	opacity: 0;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+}
+.slider-box .slider-main .slider-i-right {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: -80%;
+	opacity: 0;
+	transition: all .5s;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+}
+.slider-box .slider-main .slider-i-active {
+	left: 0;
+	opacity: 1;
+}
+.slider-box .slider-main .slider-i img {
+	width: 100%;
+	height: 100%;
+}
+
+/*切换图片按钮*/
+.slider-box .slider-ctrl-box ul{
+	position: absolute;
+	bottom: 0.5rem;
+	left: 19rem;
+}
+.slider-box .slider-ctrl-box ul li{
+	display: inline-block;
+	width: 0.8rem;
+	height: 0.8rem;
+	border-radius: 50%;
+	background-color: rgba(255,255,255,.3);
+	margin-right: 0.3rem;
+	cursor: pointer;
+}
+.slider-box .slider-ctrl-box ul li:hover {
+	background-color: rgba(255,255,255,.5);
+}
+.slider-box .slider-ctrl-box ul .slider-ctrl-active {
+	background-color: rgba(255,255,255,.5);
+}
+
+/*优化背景*/
+#slider_bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/*向前向后按钮*/
+.prev-slider {
+	position: absolute;
+	top: 8rem;
+	left: 0.5rem;
+	display: none;
+}
+.next-slider {
+	position: absolute;
+	top: 8rem;
+	right: 0.5rem;
+	display: none;
+}
+.prev-slider a,
+.next-slider a {
+	display: block;
+	width: 1.5rem;
+	height: 1.25rem;
+}
+.prev-slider a img {
+	margin-left: 0.3rem;
+}
+.next-slider a img {
+	margin-right: 0.3rem;
+}
+.prev-slider a:hover,
+.next-slider a:hover {
+	background-color: rgba(255,255,255,.1);
+}
+
+/*选择老师*/
+.choose-teacher-box {
+	width: 100%;
+	height: 40%;
+}
+.choose-teacher-box p {
+	font-size: 1rem;
+	font-weight: 600;
+	margin: 1rem;
+}
+.choose-teacher-box div table {
+	font-size: 0.8rem;
+	margin: 0 1rem;
+}
+.choose-teacher-box div table tr th,
+.choose-teacher-box div table tr td {
+	width: 10rem;
+	height: 2rem;
+	line-height: 2rem;
+	font-weight: 400;
+	text-align: center;
+	border: 0.1rem solid rgb(214,214,214);
+}
+.choose-teacher-box div table tr th {
+	font-weight: 600;
+}
+.choose-teacher-box div table tr td input {
+	width: 4rem;
+	height: 1.5rem;
+	letter-spacing: 0.1rem;
+    border: none;
+    color: rgb(255,255,255);
+    background-color: rgb(52,170,220);
+}
+.choose-teacher-box p input {
+	width: 3rem;
+	height: 1.5rem;
+	font-size: 0.8rem;
+	letter-spacing: 0.1rem;
+    border: none;
+    color: rgb(255,255,255);
+    background-color: rgb(52,170,220);
+    margin-left: 1rem;
+}
+
+/*日历*/
+.right-box .right-right-box .calendar {
+	width: 100%;
+	height: 45%;
+	text-align: center;
+	box-shadow: 0 0.1rem 0 rgb(214,214,214);
+}
+.right-box .right-right-box .calendar .calendar-title-box {
+	margin: 1rem 0;
+}
+.right-box .right-right-box .calendar .calendar-title-box .calendar-title {
+	font-size: 1.3rem;
+	letter-spacing: 0.1rem;
+}
+.right-box .right-right-box .calendar .calendar-body-box .calendar-table {
+	margin: 0 auto;
+}
+.right-box .right-right-box .calendar .calendar-body-box .calendar-table tbody tr {
+	font-size: 1rem;
+}
+.right-box .right-right-box .calendar .calendar-body-box .calendar-table tbody tr th {
+	font-size: 1rem;
+	font-weight: 400;
+}
+.right-box .right-right-box .calendar .calendar-body-box .calendar-table tbody tr td {
+	width: 1.8rem;
+	height: 1.8rem;
+	line-height: 1.8rem;
+}
+/* 当前天 颜色特殊显示 */
+.currentDay {
+    color: rgb(255,255,255);
+    background-color: rgb(52,170,220);
+    border-radius: 100%;
+}
+
+/* 本月 文字颜色 */
+.currentMonth {
+    color: rgb(75,79,92);
+}
+
+/* 其他月颜色 */
+.otherMonth{
+    color: rgb(221,224,228);
+}
+
+
+/*队伍成员*/
+.right-box .right-right-box .teammates-box {
+	width: 100%;
+	height: 53%;
+	text-align: center;
+}
+.right-box .right-right-box .teammates-box h3{
+	font-size: 1.2rem;
+	padding: 0.5rem;
+}
+.right-box .right-right-box .teammates-box ul li {
+	margin-bottom: 0.5rem;
+	height: 3rem;
+	line-height: 3rem;
+	text-align: left;
+	position: relative;
+}
+.right-box .right-right-box .teammates-box ul li img {
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	margin: 0 1rem 0 5rem;
+}
+.right-box .right-right-box .teammates-box ul li a {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: rgb(46,52,59);
+	position: absolute;
+}
+.right-box .right-right-box .teammates-box input[type="submit"] {
+	width: 10rem;
+	height: 2.5rem;
+	font-size: 1rem;
+	letter-spacing: 0.1rem;
+	border: none;
+	color: rgb(255,255,255);
+	background-color: rgb(52,170,220);
+}

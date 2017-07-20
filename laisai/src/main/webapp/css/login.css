@@ -1,0 +1,34 @@
+.error {
+		color: red;
+	}
+	
+body{
+	height:100%;
+    font-family: "微软雅黑","Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
+    background-repeat: no-repeat;
+	background-size:100% 100%;
+	background-attachment: fixed;
+}
+
+#language{
+	color:white;
+	padding-top:30px;
+}
+
+#login{
+	padding-bottom:10px;
+	padding-top:5px;
+}
+
+.login-box{
+	background-image: url("../img/white.jpg");
+	background-repeat: no-repeat;
+	background-size:100% 100%;
+	background-attachment: fixed;
+	text-align:center;
+	letter-spacing: 2px;
+	border-radius:3%;
+	box-shadow:4px 4px 10px #333333;
+	margin:10% 0;
+	padding-bottom:20px;
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tata.manager.dao.ManagerVOExtMapper">
+	<resultMap id="ManagerResultMap" type="com.tata.manager.domain.ManagerVO">
+		<id column="managerid" property="managerid" jdbcType="INTEGER" />
+		<result column="manageraccount" property="manageraccount"
+			jdbcType="VARCHAR" />
+		<result column="managerpassword" property="managerpassword"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="CompetitionResultMap" type="com.tata.competition.domain.CompetitionVO">
+		<id column="competitionid" property="competitionid" jdbcType="INTEGER" />
+		<result column="competitionname" property="competitionname"
+			jdbcType="VARCHAR" />
+		<result column="competitiontime" property="competitiontime"
+			jdbcType="TIMESTAMP" />
+		<result column="groupdeadline" property="groupdeadline"
+			jdbcType="TIMESTAMP" />
+		<result column="competitioncontent" property="competitioncontent"
+			jdbcType="VARCHAR" />
+		<result column="competitionproperty" property="competitionproperty"
+			jdbcType="VARCHAR" />
+		<result column="studentdemand" property="studentdemand"
+			jdbcType="VARCHAR" />
+		<result column="isrunning" property="isrunning" jdbcType="VARCHAR" />
+		<result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<resultMap id="TeacherResultMap" type="com.tata.teacher.domain.TeacherVO">
+		<id column="groupteacherid" property="groupteacherid" jdbcType="INTEGER" />
+		<result column="groupteachername" property="groupteachername"
+			jdbcType="VARCHAR" />
+		<result column="studentnumber" property="studentnumber"
+			jdbcType="INTEGER" />
+	</resultMap>
+	<select id="listComp" resultMap="CompetitionResultMap">
+		select *
+		from competition
+	</select>
+	<select id="listTeac" resultMap="TeacherResultMap">
+		select *
+		from teacher
+	</select>
+	<select id="selectByManageraccount" parameterType="java.lang.String"
+		resultMap="ManagerResultMap">
+		select * from manager where manageraccount=#{manageraccount}
+	</select>
+</mapper>

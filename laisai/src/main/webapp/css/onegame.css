@@ -1,0 +1,63 @@
+.middle .white-box .onegame-box {
+	margin: 0 3rem;
+	height: 100%;
+	font-weight: 300;
+	color: rgb(124,128,131);
+	position: relative;
+}
+.middle .white-box .onegame-box h2 {
+	display: inline-block;
+	font-size: 1.5rem;
+	font-weight: 400;
+	font-family: '方正中等线_GBK';
+	padding: 3rem 0 0;
+	color: rgb(2,2,2);
+	text-align:center;
+}
+.middle .white-box .onegame-box .game-time {
+	display: inline-block;
+	position: absolute;
+	top: 4.5rem;
+	left: 0;
+	margin: 0.8rem;
+	font-size: 1rem;
+
+}
+.middle .white-box .onegame-box .game-sponsor {
+	display: inline-block;
+	position: absolute;
+	top: 4.5rem;
+	left: 17rem;
+	margin: 0.8rem;
+	font-size: 1rem;
+}
+.middle .white-box .onegame-box .game-sponsor i,
+.middle .white-box .onegame-box .game-time i {
+	color: rgb(71,199,222);
+}
+.middle .white-box .onegame-box .game-infor {
+	font-size: 1rem;
+	text-indent: 2rem;
+	line-height: 1.5rem;
+	margin-top: 2rem;
+}
+.middle .white-box .onegame-box .submit-btn {
+	position: absolute;
+	bottom: 1rem;
+	left: 24rem;
+}
+ /*.middle .white-box .onegame-box .submit-btn input {
+	width: 7rem;
+	height: 2.5rem;
+	font-size: 1rem;
+	font-weight: 500;
+	font-family: '方正中等线_GBK';
+	color: rgb(255,255,255);
+	letter-spacing: 0.1rem;
+	border: none;
+	background-color: rgb(0,160,233);
+	cursor: pointer;
+} 
+.middle .white-box .onegame-box .submit-btn input:hover {
+	background-color: rgb(65,204,180);
+}*/

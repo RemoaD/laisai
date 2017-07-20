@@ -1,0 +1,16 @@
+.right-box {
+	text-align: center;
+}
+.right-box p {
+	display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-family: '方正中等线_GBK';
+    margin: 3rem 0 1rem;
+    color: rgb(2,2,2);
+}
+.right-box .alert-box {
+	width: 40rem;
+	height: 20rem;
+	margin: 0 auto;
+}

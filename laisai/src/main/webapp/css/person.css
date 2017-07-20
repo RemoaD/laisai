@@ -1,0 +1,55 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.right-box .person-box {
+	width: 100%;
+	height: 75%;
+	text-align: center;
+	margin: 0 auto;
+}
+
+/*个人头像*/
+.right-box .person-box img {
+	width: 15rem;
+	height: 15rem;
+	border-radius: 50%;
+	margin: 3rem;
+	margin-bottom: 1rem;
+}
+
+/*个人姓名*/
+.right-box .person-box span {
+	font-size: 3rem;
+	font-weight: 300;
+	font-family: '方正中等线_GBK';
+	color: rgb(65,68,83);
+	display: block;
+}
+
+.right-box .message-password {
+	text-align: center;
+}
+
+/*个人信息、修改密码按钮样式*/
+.right-box .message-password a {
+	display: inline-block;
+	width: 10rem;
+	height: 4rem;
+	line-height: 4rem;
+	font-size: 1rem;
+	font-weight: 300;
+	color: rgb(255,255,255);
+	background-color: rgb(65,68,83);
+	text-align: center;
+	letter-spacing: 0.1rem;
+	margin: 0.8rem;
+	box-shadow: 0 0.25rem 0.25rem rgb(214,214,214);
+	transition: all .5s;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+}
+.right-box .message-password a:hover {
+	background-color: rgba(113,119,145,1);
+}

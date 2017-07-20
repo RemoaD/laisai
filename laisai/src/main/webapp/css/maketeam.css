@@ -1,0 +1,279 @@
+.white-box {
+	overflow: hidden;
+	margin-left: 13rem;
+}
+.left-box {
+	position: fixed;
+	margin-left: -5rem;
+}
+.nav-btn {
+	position: absolute;
+	top: 11rem;
+	left: 10.2rem;
+	display: block;
+	width: 1rem;
+	height: 2rem;
+	line-height: 2rem;
+	font-size: 1rem;
+	color: rgb(65,68,83);
+	background-color: rgba(255,255,255,.5);
+	box-shadow: 0.1rem 0.1rem 0.1rem rgba(65,68,83,.3);
+	border-left: none;
+	cursor: pointer;
+}
+
+/*搜索框样式*/
+.search-box {
+	width: 100%;
+	height: 6rem;
+	background-image: url(../img/maketeambg.png);
+	background-position: center;
+	background-size: 100%;
+}
+.search-box form {
+	width: 21rem;
+	height: 2.5rem;
+	overflow: hidden;
+	border-radius: 0.3rem;
+	position: relative;
+	top: 2rem;
+	left: 22rem;
+}
+.search-box form input[type="text"] {
+	width: 15rem;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	background-color: rgba(255,255,255,.5);
+	border: none;
+	outline: none;
+	float: left;
+	font-size: 1rem;
+	padding: 0 0.5rem;
+}
+.search-box form input[type="submit"] {
+	width: 5rem;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	font-size: 1rem;
+	font-weight: 200;
+	font-family: "华文细黑";
+	color: rgb(255,255,255);
+	background-color: rgb(45,170,228);
+	border: none;
+	outline: none;
+	float: left;
+}
+
+/*关键字*/
+.keyword-box {
+	width: 100%;
+	height: 3.6rem;
+	text-align: center;
+	box-shadow: 0 0.1rem 0.1rem rgb(214,214,214);
+}
+
+.keyword-box ul,
+.keyword-box ul li{
+	display: inline-block;
+	/* font-size: 0.8rem;
+	font-weight: 300;
+	font-family: "方正中等线_GBK";
+	color: rgb(65,68,83); */
+}
+.keyword-box ul {
+	padding: 0.7rem;
+}
+.keyword-box ul li {
+	padding: 0 0.8rem;
+}
+.keyword-box ul li span {
+	display: block;
+	line-height: 1.2rem;
+	color: rgb(255,255,255);
+	background-color: rgb(45,170,228);
+	border-radius: 0.3rem;
+	font-weight:bold;
+	font-size:15px;
+	position: relative;
+    display: block;
+    padding: 8.5px 15px;
+}
+.keyword-box ul li a {
+	cursor: pointer;
+	color:black;
+	font-weight:bold;
+	font-size:15px;
+
+}
+.keyword-box ul li a:hover {
+	/*text-decoration: underline;*/
+}
+
+/*队伍、个人*/
+.persons-box,
+.teams-box {
+	width: 100%;
+	height: 22.5rem;
+}
+.persons-box .persons,
+.teams-box .teams {
+	width: 100%;
+	height: 19rem;
+}
+.persons-box .persons .oneperson,
+.teams-box .teams .oneteam {
+	width: 21.5rem;
+	height: 6rem;
+	display: inline-block;
+	padding: 1rem 0.65rem 0;
+	box-shadow: 0.1rem 0.1rem 0.1rem rgb(214,214,214);
+}
+
+/*队伍名称*/
+.teams-box .teams .oneteam h4 {
+	font-size: 1.2rem;
+	font-weight: 400;
+	font-family: "方正中等线_GBK";
+	color: rgb(39,38,43);
+}
+.teams-box .teams .oneteam h4,
+.aim,
+.members,
+.check-apply {
+	width: 9rem;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	float: left;
+}
+.aim,
+.members,
+.check-apply {
+	font-weight: 400;
+	font-family: "方正中等线_GBK";
+	color: rgb(123,120,120);
+}
+.aim span {
+	font-size: 0.8rem;
+}
+.aim span i {
+	color: rgb(230,95,90);
+}
+.members p {
+	font-size: 0.8rem;
+}
+.check-apply a {
+	font-size: 0.9rem;
+	margin-left: 1.5rem;
+	color: rgb(123,120,120);
+}
+.check-apply .apply {
+	color: rgb(45,170,228);
+}
+
+/*单身池个人信息样式*/
+.persons-box .persons .oneperson {
+	text-align: center;
+}
+.persons-box .persons .oneperson span{
+	font-size: 1.2rem;
+	font-weight: 400;
+	font-family: "方正中等线_GBK";
+	color: rgb(39,38,43);
+	margin: 0 auto;
+}
+.persons-box .persons .oneperson .look {
+	
+	color:#FFFFFF;
+	text-decoration:none;
+}
+.persons-box .persons .oneperson ul li{
+	display: inline-block;
+	margin: 1rem 0.5rem 1rem 0;
+}
+.persons-box .persons .oneperson ul li i {
+	color: rgba(65,68,83,.7);
+}
+.persons-box .persons .oneperson ul li span {
+	font-size: 1rem;
+	color: rgb(65, 68, 83);
+}
+.persons-box .persons .oneperson ul li a {
+	font-size: 1rem;
+	color: rgb(123,120,120);
+}
+.persons-box .persons .oneperson ul li a:hover {
+	color: rgb(7,17,27);
+}
+
+/*分页码*/
+.changepage-box {
+	width: 9.7rem;
+	margin: 0.9rem auto;
+}
+.changepage-box span,
+.changepage-box a {
+	display: inline-block;
+	width: 1.3rem;
+	height: 1.3rem;
+	line-height: 1.3rem;
+	text-align: center;
+	color: rgb(71,200,232);
+	background-color: rgb(255,255,255);
+	border: 0.1rem solid rgb(71,200,232);
+	cursor: pointer;
+}
+.changepage-box span:hover,
+.changepage-box a:hover {
+	color: rgb(255,255,255);
+	background-color: rgb(71,200,232);
+}
+
+.member-box {
+	position: relative;
+}
+
+
+
+/*弹出层样式*/
+.team-members .slider {
+	width: 100%;
+	height: 80%;
+	overflow: hidden;
+}
+.team-members .slider .slider-box {
+	width: 200%;
+}
+.team-members .slider .slider-box .slider-i {
+	float: left;
+	display: none;
+}
+
+.team-members .slider-btn ul li{
+	display: inline-block;
+	width: 0.8rem;
+	height: 0.8rem;
+	background-color: rgba(65,68,83,.5);
+	border-radius: 50%;
+	cursor: pointer;
+	margin-right: 0.3rem;
+}
+.team-members .slider-btn ul li:hover {
+	background-color: rgba(65,68,83,.8);
+}
+
+.team-members .slider-btn ul .slider-btn-active {
+	background-color: rgba(65,68,83,.8);
+}
+.team-members .slider .slider-box .slider-i-active {
+	display: block;
+}
+
+/*个人编号*/
+.oneperson {
+	position:relative;
+}
+.persons-box .persons .oneperson .number {
+	position:absolute;
+	left:13px;
+	display:none;
+}

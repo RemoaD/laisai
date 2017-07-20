@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tata.groupbaoming.dao.GroupbaomingVOExtMapper" >
+  <resultMap id="BaseResultMap" type="com.tata.groupbaoming.domain.GroupbaomingVO" >
+    <id column="baomingid" property="baomingid" jdbcType="INTEGER" />
+    <result column="groupid" property="groupid" jdbcType="INTEGER" />
+    <result column="usertruename1" property="usertruename1" jdbcType="VARCHAR" />
+    <result column="userpinyin1" property="userpinyin1" jdbcType="VARCHAR" />
+    <result column="userschool1" property="userschool1" jdbcType="VARCHAR" />
+    <result column="userdepartment1" property="userdepartment1" jdbcType="VARCHAR" />
+    <result column="usermajor1" property="usermajor1" jdbcType="VARCHAR" />
+    <result column="usergrade1" property="usergrade1" jdbcType="VARCHAR" />
+    <result column="userstudentnumber1" property="userstudentnumber1" jdbcType="VARCHAR" />
+    <result column="usersex1" property="usersex1" jdbcType="VARCHAR" />
+    <result column="usertel1" property="usertel1" jdbcType="VARCHAR" />
+    <result column="userteacher1" property="userteacher1" jdbcType="VARCHAR" />
+    <result column="usertruename2" property="usertruename2" jdbcType="VARCHAR" />
+    <result column="userpinyin2" property="userpinyin2" jdbcType="VARCHAR" />
+    <result column="userschool2" property="userschool2" jdbcType="VARCHAR" />
+    <result column="userdepartment2" property="userdepartment2" jdbcType="VARCHAR" />
+    <result column="usermajor2" property="usermajor2" jdbcType="VARCHAR" />
+    <result column="usergrade2" property="usergrade2" jdbcType="VARCHAR" />
+    <result column="userstudentnumber2" property="userstudentnumber2" jdbcType="VARCHAR" />
+    <result column="usersex2" property="usersex2" jdbcType="VARCHAR" />
+    <result column="usertel2" property="usertel2" jdbcType="VARCHAR" />
+    <result column="userteacher2" property="userteacher2" jdbcType="VARCHAR" />
+    <result column="usertruename3" property="usertruename3" jdbcType="VARCHAR" />
+    <result column="userpinyin3" property="userpinyin3" jdbcType="VARCHAR" />
+    <result column="userschool3" property="userschool3" jdbcType="VARCHAR" />
+    <result column="userdepartment3" property="userdepartment3" jdbcType="VARCHAR" />
+    <result column="usermajor3" property="usermajor3" jdbcType="VARCHAR" />
+    <result column="usergrade3" property="usergrade3" jdbcType="VARCHAR" />
+    <result column="userstudentnumber3" property="userstudentnumber3" jdbcType="VARCHAR" />
+    <result column="usersex3" property="usersex3" jdbcType="VARCHAR" />
+    <result column="usertel3" property="usertel3" jdbcType="VARCHAR" />
+    <result column="userteacher3" property="userteacher3" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="selectGroupbaomingBygroupid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  	select *
+  	from groupbaoming
+  	where groupid=#{groupid}
+  </select>
+  </mapper>

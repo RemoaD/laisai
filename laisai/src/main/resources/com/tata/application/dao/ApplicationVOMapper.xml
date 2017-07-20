@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tata.application.dao.ApplicationVOMapper" >
+  <resultMap id="BaseResultMap" type="com.tata.application.domain.ApplicationVO" >
+    <id column="applicationid" property="applicationid" jdbcType="INTEGER" />
+    <result column="sendapplicationid" property="sendapplicationid" jdbcType="INTEGER" />
+    <result column="firstmemberid" property="firstmemberid" jdbcType="INTEGER" />
+    <result column="secondmemberid" property="secondmemberid" jdbcType="INTEGER" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    applicationid, sendapplicationid, firstmemberid, secondmemberid, createtime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tata.application.domain.ApplicationVOExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from application
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null" >
+      <if test="offset != null" >
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null" >
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from application
+    where applicationid = #{applicationid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from application
+    where applicationid = #{applicationid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tata.application.domain.ApplicationVOExample" >
+    delete from application
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tata.application.domain.ApplicationVO" useGeneratedKeys="true" keyProperty="id" >
+    insert into application (applicationid, sendapplicationid, 
+      firstmemberid, secondmemberid, createtime
+      )
+    values (#{applicationid,jdbcType=INTEGER}, #{sendapplicationid,jdbcType=INTEGER}, 
+      #{firstmemberid,jdbcType=INTEGER}, #{secondmemberid,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tata.application.domain.ApplicationVO" useGeneratedKeys="true" keyProperty="id" >
+    insert into application
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="applicationid != null" >
+        applicationid,
+      </if>
+      <if test="sendapplicationid != null" >
+        sendapplicationid,
+      </if>
+      <if test="firstmemberid != null" >
+        firstmemberid,
+      </if>
+      <if test="secondmemberid != null" >
+        secondmemberid,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="applicationid != null" >
+        #{applicationid,jdbcType=INTEGER},
+      </if>
+      <if test="sendapplicationid != null" >
+        #{sendapplicationid,jdbcType=INTEGER},
+      </if>
+      <if test="firstmemberid != null" >
+        #{firstmemberid,jdbcType=INTEGER},
+      </if>
+      <if test="secondmemberid != null" >
+        #{secondmemberid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tata.application.domain.ApplicationVOExample" resultType="java.lang.Integer" >
+    select count(*) from application
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update application
+    <set >
+      <if test="record.applicationid != null" >
+        applicationid = #{record.applicationid,jdbcType=INTEGER},
+      </if>
+      <if test="record.sendapplicationid != null" >
+        sendapplicationid = #{record.sendapplicationid,jdbcType=INTEGER},
+      </if>
+      <if test="record.firstmemberid != null" >
+        firstmemberid = #{record.firstmemberid,jdbcType=INTEGER},
+      </if>
+      <if test="record.secondmemberid != null" >
+        secondmemberid = #{record.secondmemberid,jdbcType=INTEGER},
+      </if>
+      <if test="record.createtime != null" >
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update application
+    set applicationid = #{record.applicationid,jdbcType=INTEGER},
+      sendapplicationid = #{record.sendapplicationid,jdbcType=INTEGER},
+      firstmemberid = #{record.firstmemberid,jdbcType=INTEGER},
+      secondmemberid = #{record.secondmemberid,jdbcType=INTEGER},
+      createtime = #{record.createtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tata.application.domain.ApplicationVO" >
+    update application
+    <set >
+      <if test="sendapplicationid != null" >
+        sendapplicationid = #{sendapplicationid,jdbcType=INTEGER},
+      </if>
+      <if test="firstmemberid != null" >
+        firstmemberid = #{firstmemberid,jdbcType=INTEGER},
+      </if>
+      <if test="secondmemberid != null" >
+        secondmemberid = #{secondmemberid,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where applicationid = #{applicationid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tata.application.domain.ApplicationVO" >
+    update application
+    set sendapplicationid = #{sendapplicationid,jdbcType=INTEGER},
+      firstmemberid = #{firstmemberid,jdbcType=INTEGER},
+      secondmemberid = #{secondmemberid,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where applicationid = #{applicationid,jdbcType=INTEGER}
+  </update>
+</mapper>

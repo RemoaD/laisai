@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tata.competition.dao.CompetitionVOMapper" >
+  <resultMap id="BaseResultMap" type="com.tata.competition.domain.CompetitionVO" >
+    <id column="competitionid" property="competitionid" jdbcType="INTEGER" />
+    <result column="competitionname" property="competitionname" jdbcType="VARCHAR" />
+    <result column="competitiontime" property="competitiontime" jdbcType="TIMESTAMP" />
+    <result column="groupdeadline" property="groupdeadline" jdbcType="TIMESTAMP" />
+    <result column="competitioncontent" property="competitioncontent" jdbcType="VARCHAR" />
+    <result column="competitionproperty" property="competitionproperty" jdbcType="VARCHAR" />
+    <result column="studentdemand" property="studentdemand" jdbcType="VARCHAR" />
+    <result column="isrunning" property="isrunning" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    competitionid, competitionname, competitiontime, groupdeadline, competitioncontent, 
+    competitionproperty, studentdemand, isrunning, createtime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tata.competition.domain.CompetitionVOExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from competition
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null" >
+      <if test="offset != null" >
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null" >
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from competition
+    where competitionid = #{competitionid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from competition
+    where competitionid = #{competitionid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tata.competition.domain.CompetitionVOExample" >
+    delete from competition
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tata.competition.domain.CompetitionVO" useGeneratedKeys="true" keyProperty="id" >
+    insert into competition (competitionid, competitionname, competitiontime, 
+      groupdeadline, competitioncontent, competitionproperty, 
+      studentdemand, isrunning, createtime
+      )
+    values (#{competitionid,jdbcType=INTEGER}, #{competitionname,jdbcType=VARCHAR}, #{competitiontime,jdbcType=TIMESTAMP}, 
+      #{groupdeadline,jdbcType=TIMESTAMP}, #{competitioncontent,jdbcType=VARCHAR}, #{competitionproperty,jdbcType=VARCHAR}, 
+      #{studentdemand,jdbcType=VARCHAR}, #{isrunning,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tata.competition.domain.CompetitionVO" useGeneratedKeys="true" keyProperty="id" >
+    insert into competition
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="competitionid != null" >
+        competitionid,
+      </if>
+      <if test="competitionname != null" >
+        competitionname,
+      </if>
+      <if test="competitiontime != null" >
+        competitiontime,
+      </if>
+      <if test="groupdeadline != null" >
+        groupdeadline,
+      </if>
+      <if test="competitioncontent != null" >
+        competitioncontent,
+      </if>
+      <if test="competitionproperty != null" >
+        competitionproperty,
+      </if>
+      <if test="studentdemand != null" >
+        studentdemand,
+      </if>
+      <if test="isrunning != null" >
+        isrunning,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="competitionid != null" >
+        #{competitionid,jdbcType=INTEGER},
+      </if>
+      <if test="competitionname != null" >
+        #{competitionname,jdbcType=VARCHAR},
+      </if>
+      <if test="competitiontime != null" >
+        #{competitiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupdeadline != null" >
+        #{groupdeadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="competitioncontent != null" >
+        #{competitioncontent,jdbcType=VARCHAR},
+      </if>
+      <if test="competitionproperty != null" >
+        #{competitionproperty,jdbcType=VARCHAR},
+      </if>
+      <if test="studentdemand != null" >
+        #{studentdemand,jdbcType=VARCHAR},
+      </if>
+      <if test="isrunning != null" >
+        #{isrunning,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tata.competition.domain.CompetitionVOExample" resultType="java.lang.Integer" >
+    select count(*) from competition
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update competition
+    <set >
+      <if test="record.competitionid != null" >
+        competitionid = #{record.competitionid,jdbcType=INTEGER},
+      </if>
+      <if test="record.competitionname != null" >
+        competitionname = #{record.competitionname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.competitiontime != null" >
+        competitiontime = #{record.competitiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.groupdeadline != null" >
+        groupdeadline = #{record.groupdeadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.competitioncontent != null" >
+        competitioncontent = #{record.competitioncontent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.competitionproperty != null" >
+        competitionproperty = #{record.competitionproperty,jdbcType=VARCHAR},
+      </if>
+      <if test="record.studentdemand != null" >
+        studentdemand = #{record.studentdemand,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isrunning != null" >
+        isrunning = #{record.isrunning,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null" >
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update competition
+    set competitionid = #{record.competitionid,jdbcType=INTEGER},
+      competitionname = #{record.competitionname,jdbcType=VARCHAR},
+      competitiontime = #{record.competitiontime,jdbcType=TIMESTAMP},
+      groupdeadline = #{record.groupdeadline,jdbcType=TIMESTAMP},
+      competitioncontent = #{record.competitioncontent,jdbcType=VARCHAR},
+      competitionproperty = #{record.competitionproperty,jdbcType=VARCHAR},
+      studentdemand = #{record.studentdemand,jdbcType=VARCHAR},
+      isrunning = #{record.isrunning,jdbcType=VARCHAR},
+      createtime = #{record.createtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tata.competition.domain.CompetitionVO" >
+    update competition
+    <set >
+      <if test="competitionname != null" >
+        competitionname = #{competitionname,jdbcType=VARCHAR},
+      </if>
+      <if test="competitiontime != null" >
+        competitiontime = #{competitiontime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupdeadline != null" >
+        groupdeadline = #{groupdeadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="competitioncontent != null" >
+        competitioncontent = #{competitioncontent,jdbcType=VARCHAR},
+      </if>
+      <if test="competitionproperty != null" >
+        competitionproperty = #{competitionproperty,jdbcType=VARCHAR},
+      </if>
+      <if test="studentdemand != null" >
+        studentdemand = #{studentdemand,jdbcType=VARCHAR},
+      </if>
+      <if test="isrunning != null" >
+        isrunning = #{isrunning,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where competitionid = #{competitionid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tata.competition.domain.CompetitionVO" >
+    update competition
+    set competitionname = #{competitionname,jdbcType=VARCHAR},
+      competitiontime = #{competitiontime,jdbcType=TIMESTAMP},
+      groupdeadline = #{groupdeadline,jdbcType=TIMESTAMP},
+      competitioncontent = #{competitioncontent,jdbcType=VARCHAR},
+      competitionproperty = #{competitionproperty,jdbcType=VARCHAR},
+      studentdemand = #{studentdemand,jdbcType=VARCHAR},
+      isrunning = #{isrunning,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where competitionid = #{competitionid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,191 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.bg-box{
+	padding-top: 70px;
+	margin: 0 auto;
+}
+/*背景盒子的样式*/
+.middle{
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	background-image: url("../img/teambg.png");
+	background-position: center;
+	background-size: 101%;
+	background-attachment:fixed;/*背景固定*/
+	overflow: hidden;
+	background-repeat: no-repeat;
+}
+
+
+/*登录、注册盒子*/
+/*.login-box,
+ .register-box{
+	width: 340px;
+	height: 350px;
+	margin: 60px auto;
+} */
+
+/*大字样式*/
+.login-box .login-title,
+.register-box .register-title{
+	margin-bottom: 30px;
+}
+.login-box .login-title p,
+.register-box .register-title p{
+	font-size: 50px;
+	font-weight: 400;
+	font-family: "Candara Regular";
+	color: rgba(255,254,254,.7);
+}
+
+/*登录、注册表单样式*/
+.login-box form table,
+.register-box form table{
+	margin: 0 auto;
+	width: 270px;
+}
+.login-box form table tr,
+.register-box form table tr{
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	margin: 10px 0;
+	border-radius: 5px;
+	background-color: rgba(65,68,83,.3);
+}
+.login-box form table tr td i,
+.register-box form table tr td i{
+	width: 18px;
+	padding: 0 13px;
+	color: rgba(163,204,186,1);
+}
+.login-box form table tr td input,
+.register-box form table tr td input{
+	height: 50px;
+	line-height: 50px;
+	font-size: 16px;
+	letter-spacing: 1px;
+	color: rgba(255,255,255,.5);
+	background-color: transparent;
+	border:none;
+	outline: medium;/*去掉点击时的边框*/
+}
+
+/*设置input的placeholder属性的颜色*/
+::-webkit-input-placeholder{	/*Webkit browsers*/
+	color: rgba(255,255,255,.4);
+}
+:-moz-placeholder{	/*Mozilla Firefox 4 to 18*/
+	color: rgba(255,255,255,.4);
+}
+::-moz-placeholder{	/*Mozilla Firefox 19+*/
+	color: rgba(255,255,255,.4);
+}
+:-ms-input-placeholder{	/*Internet Explorer 10+*/
+	color: rgba(255,255,255,.4);
+}
+
+/*设置输入邮箱、输入密码框的宽度*/
+.login-box form table tr td .password,
+.login-box form table tr td .email{
+	width: 226px;
+}
+
+/*输入验证码*/
+.login-box form table tr td .codes{
+	width: 130px;
+}
+
+/*设置注册各输入框长度*/
+.register-box form table tr td .mail,
+.register-box form table tr td .password-again,
+.register-box form table tr td .new-password{
+	width: 227px;
+}
+.register-box form table tr td .codes_1{
+	width: 136px;
+}
+.register-box form table tr td .codes_2{
+	width: 140px;
+}
+.register-box form table tr td .mail-code{
+	width: 74px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+	color: rgba(255,255,255,.7);
+	background-color: rgb(89,192,227);
+}
+
+/*登录、注册验证码样式*/
+.ccodes{
+	font-size: 16px;
+	font-style: italic;
+	letter-spacing: 3px;
+	margin-left: 5px;
+	cursor: pointer;
+	background-image: url(../img/code.png);
+	background-position: center;
+}
+
+/*已阅协议、返回*/
+/* .login-box form label,
+.register-box label{
+	display: block;
+	width: 270px;
+	margin: 10px auto;
+	font-weight: 300;
+} */
+.login-box form label span,
+.register-box form label span{
+	position: relative;
+	top: -3px;
+}
+.login-box form label a,
+.register-box form label a{
+	float: right;
+	padding: 0 5px;
+	color: rgb(0,0,0);
+}
+.login-box form label .forger-password{
+	border-left: 1px solid rgb(0,0,0);
+}
+
+/*登录、注册按钮*/
+.login-box form .login-btn,
+.register-box form .register-btn{
+	display: block;
+	width: 270px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	margin: 5px 35px;
+	color: rgb(255,255,255);
+	background-color: rgb(89,192,227);
+	border: none;
+	font-size: 20px;
+	letter-spacing: 5px;
+}
+
+/*提示*/
+.login-box form table tr,
+.register-box form table tr{
+	position: relative;
+}
+.login-box form table tr .interpret,
+.register-box form table tr .interpret{
+	position: absolute;
+	width: 150px;
+	top: 0;
+	left: 280px;
+	font-size: 14px;
+	color: rgba(65,68,83,.5);
+}
+.login-box form table tr .interpret img,
+.register-box form table tr .interpret img{
+	padding-right: 2px;
+	margin-bottom: -2px;
+}

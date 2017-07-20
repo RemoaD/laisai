@@ -1,0 +1,76 @@
+.right-box .infor-box {
+	width: 100%;
+	height: 28rem;
+}
+.right-box .infor-box .left-infor-box,
+.right-box .infor-box .right-infor-box {
+	float: left;
+	width: 49%;
+	height: 28rem;
+	text-align: center;
+	margin: 0 auto;
+}
+.right-box .infor-box .left-infor-box form table{
+	margin: 3rem auto;
+}
+.right-box .infor-box .right-infor-box form table tr,
+.right-box .infor-box .left-infor-box form table tr {
+	line-height: 3.4rem;
+}
+.right-box .infor-box .right-infor-box form table tr td,
+.right-box .infor-box .left-infor-box form table tr td {
+	font-size: 1.2rem;
+	font-weight: 300;
+	font-family: '方正中等线_GBK';
+	color: rgb(65,68,83);
+	padding-right: 1rem;
+}
+.right-box .infor-box .left-infor-box form table tr td input {
+	width: 11rem;
+	border: 1px solid rgb(189,189,189);
+}
+
+.right-box .infor-box .right-infor-box .changephoto {
+	margin: 2rem;
+}
+.right-box .infor-box .right-infor-box .changephoto img {
+	width: 6rem;
+	height: 6rem;
+	border-radius: 50%;
+	padding: 1rem;
+}
+.right-box .infor-box .right-infor-box .changephoto span {
+	display: block;
+	width: 4rem;
+	margin: 0 auto;
+	font-size: 1rem;
+	font-weight: 300;
+	font-family: '方正中等线_GBK';
+	cursor: pointer;
+}
+.right-box .infor-box .right-infor-box form table {
+	margin: 0 auto;
+}
+
+/*性别单选框样式*/
+.right-infor-box form table tr td .male {
+	margin-left: -5rem;
+}
+.right-infor-box form table tr td .female {
+	margin-left: 1rem;
+}
+
+/*年级样式*/
+.right-infor-box form table tr td select {
+	width: 10rem;
+	padding: 0 3rem;
+}
+.right-infor-box form table tr td select option{
+	text-align: center;
+}
+
+/*个人简介*/
+.right-infor-box form table tr td textarea {
+	resize: none;
+}
+

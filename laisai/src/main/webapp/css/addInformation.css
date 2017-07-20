@@ -1,0 +1,173 @@
+.middle .white-box .my-experience-box,
+.middle .white-box .my-message-box {
+	height: 100%;
+	float: left;
+	text-align: center;
+}
+.middle .white-box .my-message-box {
+	width: 45%;
+}
+.middle .white-box .my-experience-box {
+	width: 55%;
+}
+.middle .white-box .my-message-box span {
+	display: block;
+}
+
+/*个人头像样式*/
+.middle .white-box .my-message-box span img {
+	width: 10rem;
+	height: 10rem;
+	margin: 8rem 2rem 0;
+	border-radius: 50%;
+}
+
+/*姓名样式*/
+.middle .white-box .my-message-box .my-name {
+	margin: 1.5rem;
+	font-size: 1.5rem;
+	font-weight: 400;
+	font-family: '方正中等线_GBK';
+	color: rgb(65,68,83);
+}
+
+/*icon样式*/
+.middle .white-box .my-message-box .icons {
+	margin-top: 3rem;
+}
+.middle .white-box .my-message-box .icons li{
+	display: inline-block;
+}
+.middle .white-box .my-message-box .icons li span i {
+	padding: 0.7rem;
+	margin: 0 0.5rem;
+	color: rgba(120,125,130,.5);
+	background-color: rgba(243,245,247,.5);
+	border: 1px solid rgba(65,68,83,.2);
+	border-radius: 50%;
+	cursor: pointer;
+}
+.middle .white-box .my-message-box .icons li span i:hover {
+	background-color: rgba(243,245,247,1);
+}
+
+/*补充信息样式*/
+.middle .white-box .my-experience-box form {
+	margin: 5rem 0 2rem;
+}
+.middle .white-box .my-experience-box form table{
+	margin: 0 auto;
+}
+.middle .white-box .my-experience-box form table tr {
+	display: block;
+	width: 100%;
+	font-size: 1.2rem;
+	font-weight: 300;
+	font-family: '方正中等线_GBK';
+	color: rgb(65,68,83);
+	margin-bottom: 2rem;
+}
+.middle .white-box .my-experience-box form table tr:first-child {
+	text-align: left;
+}
+.middle .white-box .my-experience-box form table tr:first-child td input {
+	margin-left: 1rem;
+}
+.middle .white-box .my-experience-box form table tr:first-child td input:first-child {
+	margin-left: 0;
+}
+.middle .white-box .my-experience-box form table tr td {
+	display: inline-block;
+	margin-right: 2rem;
+}
+.middle .white-box .my-experience-box form table tr td textarea {
+	font-size: 1rem;
+	font-weight: 300;
+	font-family: '方正中等线_GBK';
+	color: rgb(65,68,83); 
+	resize: none;
+}
+
+/*确认返回按钮样式*/
+.middle .white-box .my-experience-box ul li {
+	display: inline-block;
+	margin-left: 2rem;
+}
+.middle .white-box .my-experience-box ul li:first-child {
+	margin-left: 5.5rem;
+}
+.middle .white-box .my-experience-box ul li a {
+	text-decoration: none;
+	display: block;
+	width: 7rem;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	color: rgb(255,255,255);
+	background-color: rgb(0,160,233);
+}
+.middle .white-box .my-experience-box ul li a:hover {
+	background-color: rgb(65,204,180);
+}
+.middle .white-box .my-experience-box ul li a span {
+	font-size: 1rem;
+	font-weight: 300;
+	font-family: '方正中等线_GBK'; 
+}
+
+/*各icon显示信息的样式*/
+.wechat,
+.qq,
+.aim-function,
+.p-introduce,
+.p-message {
+	display: none;
+	position: relative;
+}
+
+.wechat,
+.qq,
+.aim-function {
+	top: -7rem;
+	width: 15rem;
+	height: 3rem;
+	line-height: 3rem;
+	font-size: 0.8rem;
+	font-weight: 300;
+	font-family: '方正中等线_GBK';
+	color: rgb(65,68,83);
+	background-color: rgb(255,255,255);
+	box-shadow: 0.2rem 0.2rem 0.2rem rgb(212,212,212);
+	-webkit-box-shadow: 0.2rem 0.2rem 0.2rem rgb(212,212,212);
+	-moz-box-shadow: 0.2rem 0.2rem 0.2rem rgb(212,212,212);
+}
+.qq {
+	left: 3rem;
+}
+.aim-function {
+	left: 8rem;
+}
+.p-introduce,
+.p-message {
+	width: 22rem;
+	height: 14rem;
+	text-align: left;
+	font-size: 0.8rem;
+	font-weight: 300;
+	font-family: '方正中等线_GBK';
+	color: rgb(65,68,83);
+	background-color: rgb(255,255,255);
+	box-shadow: 0.2rem 0.2rem 0.2rem rgb(212,212,212);
+	-webkit-box-shadow: 0.2rem 0.2rem 0.2rem rgb(212,212,212);
+	-moz-box-shadow: 0.2rem 0.2rem 0.2rem rgb(212,212,212);
+	top: -18rem;
+	left: 8rem;
+}
+.p-message ul li {
+	padding-left: 2rem;
+	line-height: 1.2rem;
+}
+.p-introduce p {
+	text-indent: 2rem;
+	line-height: 1.2rem;
+	padding: 0 1rem;
+}

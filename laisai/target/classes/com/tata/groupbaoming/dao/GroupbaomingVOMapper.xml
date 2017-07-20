@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tata.groupbaoming.dao.GroupbaomingVOMapper" >
+  <resultMap id="BaseResultMap" type="com.tata.groupbaoming.domain.GroupbaomingVO" >
+    <id column="baomingid" property="baomingid" jdbcType="INTEGER" />
+    <result column="groupid" property="groupid" jdbcType="INTEGER" />
+    <result column="usertruename1" property="usertruename1" jdbcType="VARCHAR" />
+    <result column="userpinyin1" property="userpinyin1" jdbcType="VARCHAR" />
+    <result column="userschool1" property="userschool1" jdbcType="VARCHAR" />
+    <result column="userdepartment1" property="userdepartment1" jdbcType="VARCHAR" />
+    <result column="usermajor1" property="usermajor1" jdbcType="VARCHAR" />
+    <result column="usergrade1" property="usergrade1" jdbcType="VARCHAR" />
+    <result column="userstudentnumber1" property="userstudentnumber1" jdbcType="VARCHAR" />
+    <result column="usersex1" property="usersex1" jdbcType="VARCHAR" />
+    <result column="usertel1" property="usertel1" jdbcType="VARCHAR" />
+    <result column="userteacher1" property="userteacher1" jdbcType="VARCHAR" />
+    <result column="usertruename2" property="usertruename2" jdbcType="VARCHAR" />
+    <result column="userpinyin2" property="userpinyin2" jdbcType="VARCHAR" />
+    <result column="userschool2" property="userschool2" jdbcType="VARCHAR" />
+    <result column="userdepartment2" property="userdepartment2" jdbcType="VARCHAR" />
+    <result column="usermajor2" property="usermajor2" jdbcType="VARCHAR" />
+    <result column="usergrade2" property="usergrade2" jdbcType="VARCHAR" />
+    <result column="userstudentnumber2" property="userstudentnumber2" jdbcType="VARCHAR" />
+    <result column="usersex2" property="usersex2" jdbcType="VARCHAR" />
+    <result column="usertel2" property="usertel2" jdbcType="VARCHAR" />
+    <result column="userteacher2" property="userteacher2" jdbcType="VARCHAR" />
+    <result column="usertruename3" property="usertruename3" jdbcType="VARCHAR" />
+    <result column="userpinyin3" property="userpinyin3" jdbcType="VARCHAR" />
+    <result column="userschool3" property="userschool3" jdbcType="VARCHAR" />
+    <result column="userdepartment3" property="userdepartment3" jdbcType="VARCHAR" />
+    <result column="usermajor3" property="usermajor3" jdbcType="VARCHAR" />
+    <result column="usergrade3" property="usergrade3" jdbcType="VARCHAR" />
+    <result column="userstudentnumber3" property="userstudentnumber3" jdbcType="VARCHAR" />
+    <result column="usersex3" property="usersex3" jdbcType="VARCHAR" />
+    <result column="usertel3" property="usertel3" jdbcType="VARCHAR" />
+    <result column="userteacher3" property="userteacher3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    baomingid, groupid, usertruename1, userpinyin1, userschool1, userdepartment1, usermajor1, 
+    usergrade1, userstudentnumber1, usersex1, usertel1, userteacher1, usertruename2, 
+    userpinyin2, userschool2, userdepartment2, usermajor2, usergrade2, userstudentnumber2, 
+    usersex2, usertel2, userteacher2, usertruename3, userpinyin3, userschool3, userdepartment3, 
+    usermajor3, usergrade3, userstudentnumber3, usersex3, usertel3, userteacher3
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tata.groupbaoming.domain.GroupbaomingVOExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from groupbaoming
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null" >
+      <if test="offset != null" >
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null" >
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from groupbaoming
+    where baomingid = #{baomingid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from groupbaoming
+    where baomingid = #{baomingid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tata.groupbaoming.domain.GroupbaomingVOExample" >
+    delete from groupbaoming
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tata.groupbaoming.domain.GroupbaomingVO" useGeneratedKeys="true" keyProperty="id" >
+    insert into groupbaoming (baomingid, groupid, usertruename1, 
+      userpinyin1, userschool1, userdepartment1, 
+      usermajor1, usergrade1, userstudentnumber1, 
+      usersex1, usertel1, userteacher1, 
+      usertruename2, userpinyin2, userschool2, 
+      userdepartment2, usermajor2, usergrade2, 
+      userstudentnumber2, usersex2, usertel2, 
+      userteacher2, usertruename3, userpinyin3, 
+      userschool3, userdepartment3, usermajor3, 
+      usergrade3, userstudentnumber3, usersex3, 
+      usertel3, userteacher3)
+    values (#{baomingid,jdbcType=INTEGER}, #{groupid,jdbcType=INTEGER}, #{usertruename1,jdbcType=VARCHAR}, 
+      #{userpinyin1,jdbcType=VARCHAR}, #{userschool1,jdbcType=VARCHAR}, #{userdepartment1,jdbcType=VARCHAR}, 
+      #{usermajor1,jdbcType=VARCHAR}, #{usergrade1,jdbcType=VARCHAR}, #{userstudentnumber1,jdbcType=VARCHAR}, 
+      #{usersex1,jdbcType=VARCHAR}, #{usertel1,jdbcType=VARCHAR}, #{userteacher1,jdbcType=VARCHAR}, 
+      #{usertruename2,jdbcType=VARCHAR}, #{userpinyin2,jdbcType=VARCHAR}, #{userschool2,jdbcType=VARCHAR}, 
+      #{userdepartment2,jdbcType=VARCHAR}, #{usermajor2,jdbcType=VARCHAR}, #{usergrade2,jdbcType=VARCHAR}, 
+      #{userstudentnumber2,jdbcType=VARCHAR}, #{usersex2,jdbcType=VARCHAR}, #{usertel2,jdbcType=VARCHAR}, 
+      #{userteacher2,jdbcType=VARCHAR}, #{usertruename3,jdbcType=VARCHAR}, #{userpinyin3,jdbcType=VARCHAR}, 
+      #{userschool3,jdbcType=VARCHAR}, #{userdepartment3,jdbcType=VARCHAR}, #{usermajor3,jdbcType=VARCHAR}, 
+      #{usergrade3,jdbcType=VARCHAR}, #{userstudentnumber3,jdbcType=VARCHAR}, #{usersex3,jdbcType=VARCHAR}, 
+      #{usertel3,jdbcType=VARCHAR}, #{userteacher3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tata.groupbaoming.domain.GroupbaomingVO" useGeneratedKeys="true" keyProperty="id" >
+    insert into groupbaoming
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="baomingid != null" >
+        baomingid,
+      </if>
+      <if test="groupid != null" >
+        groupid,
+      </if>
+      <if test="usertruename1 != null" >
+        usertruename1,
+      </if>
+      <if test="userpinyin1 != null" >
+        userpinyin1,
+      </if>
+      <if test="userschool1 != null" >
+        userschool1,
+      </if>
+      <if test="userdepartment1 != null" >
+        userdepartment1,
+      </if>
+      <if test="usermajor1 != null" >
+        usermajor1,
+      </if>
+      <if test="usergrade1 != null" >
+        usergrade1,
+      </if>
+      <if test="userstudentnumber1 != null" >
+        userstudentnumber1,
+      </if>
+      <if test="usersex1 != null" >
+        usersex1,
+      </if>
+      <if test="usertel1 != null" >
+        usertel1,
+      </if>
+      <if test="userteacher1 != null" >
+        userteacher1,
+      </if>
+      <if test="usertruename2 != null" >
+        usertruename2,
+      </if>
+      <if test="userpinyin2 != null" >
+        userpinyin2,
+      </if>
+      <if test="userschool2 != null" >
+        userschool2,
+      </if>
+      <if test="userdepartment2 != null" >
+        userdepartment2,
+      </if>
+      <if test="usermajor2 != null" >
+        usermajor2,
+      </if>
+      <if test="usergrade2 != null" >
+        usergrade2,
+      </if>
+      <if test="userstudentnumber2 != null" >
+        userstudentnumber2,
+      </if>
+      <if test="usersex2 != null" >
+        usersex2,
+      </if>
+      <if test="usertel2 != null" >
+        usertel2,
+      </if>
+      <if test="userteacher2 != null" >
+        userteacher2,
+      </if>
+      <if test="usertruename3 != null" >
+        usertruename3,
+      </if>
+      <if test="userpinyin3 != null" >
+        userpinyin3,
+      </if>
+      <if test="userschool3 != null" >
+        userschool3,
+      </if>
+      <if test="userdepartment3 != null" >
+        userdepartment3,
+      </if>
+      <if test="usermajor3 != null" >
+        usermajor3,
+      </if>
+      <if test="usergrade3 != null" >
+        usergrade3,
+      </if>
+      <if test="userstudentnumber3 != null" >
+        userstudentnumber3,
+      </if>
+      <if test="usersex3 != null" >
+        usersex3,
+      </if>
+      <if test="usertel3 != null" >
+        usertel3,
+      </if>
+      <if test="userteacher3 != null" >
+        userteacher3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="baomingid != null" >
+        #{baomingid,jdbcType=INTEGER},
+      </if>
+      <if test="groupid != null" >
+        #{groupid,jdbcType=INTEGER},
+      </if>
+      <if test="usertruename1 != null" >
+        #{usertruename1,jdbcType=VARCHAR},
+      </if>
+      <if test="userpinyin1 != null" >
+        #{userpinyin1,jdbcType=VARCHAR},
+      </if>
+      <if test="userschool1 != null" >
+        #{userschool1,jdbcType=VARCHAR},
+      </if>
+      <if test="userdepartment1 != null" >
+        #{userdepartment1,jdbcType=VARCHAR},
+      </if>
+      <if test="usermajor1 != null" >
+        #{usermajor1,jdbcType=VARCHAR},
+      </if>
+      <if test="usergrade1 != null" >
+        #{usergrade1,jdbcType=VARCHAR},
+      </if>
+      <if test="userstudentnumber1 != null" >
+        #{userstudentnumber1,jdbcType=VARCHAR},
+      </if>
+      <if test="usersex1 != null" >
+        #{usersex1,jdbcType=VARCHAR},
+      </if>
+      <if test="usertel1 != null" >
+        #{usertel1,jdbcType=VARCHAR},
+      </if>
+      <if test="userteacher1 != null" >
+        #{userteacher1,jdbcType=VARCHAR},
+      </if>
+      <if test="usertruename2 != null" >
+        #{usertruename2,jdbcType=VARCHAR},
+      </if>
+      <if test="userpinyin2 != null" >
+        #{userpinyin2,jdbcType=VARCHAR},
+      </if>
+      <if test="userschool2 != null" >
+        #{userschool2,jdbcType=VARCHAR},
+      </if>
+      <if test="userdepartment2 != null" >
+        #{userdepartment2,jdbcType=VARCHAR},
+      </if>
+      <if test="usermajor2 != null" >
+        #{usermajor2,jdbcType=VARCHAR},
+      </if>
+      <if test="usergrade2 != null" >
+        #{usergrade2,jdbcType=VARCHAR},
+      </if>
+      <if test="userstudentnumber2 != null" >
+        #{userstudentnumber2,jdbcType=VARCHAR},
+      </if>
+      <if test="usersex2 != null" >
+        #{usersex2,jdbcType=VARCHAR},
+      </if>
+      <if test="usertel2 != null" >
+        #{usertel2,jdbcType=VARCHAR},
+      </if>
+      <if test="userteacher2 != null" >
+        #{userteacher2,jdbcType=VARCHAR},
+      </if>
+      <if test="usertruename3 != null" >
+        #{usertruename3,jdbcType=VARCHAR},
+      </if>
+      <if test="userpinyin3 != null" >
+        #{userpinyin3,jdbcType=VARCHAR},
+      </if>
+      <if test="userschool3 != null" >
+        #{userschool3,jdbcType=VARCHAR},
+      </if>
+      <if test="userdepartment3 != null" >
+        #{userdepartment3,jdbcType=VARCHAR},
+      </if>
+      <if test="usermajor3 != null" >
+        #{usermajor3,jdbcType=VARCHAR},
+      </if>
+      <if test="usergrade3 != null" >
+        #{usergrade3,jdbcType=VARCHAR},
+      </if>
+      <if test="userstudentnumber3 != null" >
+        #{userstudentnumber3,jdbcType=VARCHAR},
+      </if>
+      <if test="usersex3 != null" >
+        #{usersex3,jdbcType=VARCHAR},
+      </if>
+      <if test="usertel3 != null" >
+        #{usertel3,jdbcType=VARCHAR},
+      </if>
+      <if test="userteacher3 != null" >
+        #{userteacher3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tata.groupbaoming.domain.GroupbaomingVOExample" resultType="java.lang.Integer" >
+    select count(*) from groupbaoming
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update groupbaoming
+    <set >
+      <if test="record.baomingid != null" >
+        baomingid = #{record.baomingid,jdbcType=INTEGER},
+      </if>
+      <if test="record.groupid != null" >
+        groupid = #{record.groupid,jdbcType=INTEGER},
+      </if>
+      <if test="record.usertruename1 != null" >
+        usertruename1 = #{record.usertruename1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userpinyin1 != null" >
+        userpinyin1 = #{record.userpinyin1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userschool1 != null" >
+        userschool1 = #{record.userschool1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userdepartment1 != null" >
+        userdepartment1 = #{record.userdepartment1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usermajor1 != null" >
+        usermajor1 = #{record.usermajor1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usergrade1 != null" >
+        usergrade1 = #{record.usergrade1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userstudentnumber1 != null" >
+        userstudentnumber1 = #{record.userstudentnumber1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usersex1 != null" >
+        usersex1 = #{record.usersex1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usertel1 != null" >
+        usertel1 = #{record.usertel1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userteacher1 != null" >
+        userteacher1 = #{record.userteacher1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usertruename2 != null" >
+        usertruename2 = #{record.usertruename2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userpinyin2 != null" >
+        userpinyin2 = #{record.userpinyin2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userschool2 != null" >
+        userschool2 = #{record.userschool2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userdepartment2 != null" >
+        userdepartment2 = #{record.userdepartment2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usermajor2 != null" >
+        usermajor2 = #{record.usermajor2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usergrade2 != null" >
+        usergrade2 = #{record.usergrade2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userstudentnumber2 != null" >
+        userstudentnumber2 = #{record.userstudentnumber2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usersex2 != null" >
+        usersex2 = #{record.usersex2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usertel2 != null" >
+        usertel2 = #{record.usertel2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userteacher2 != null" >
+        userteacher2 = #{record.userteacher2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usertruename3 != null" >
+        usertruename3 = #{record.usertruename3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userpinyin3 != null" >
+        userpinyin3 = #{record.userpinyin3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userschool3 != null" >
+        userschool3 = #{record.userschool3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userdepartment3 != null" >
+        userdepartment3 = #{record.userdepartment3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usermajor3 != null" >
+        usermajor3 = #{record.usermajor3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usergrade3 != null" >
+        usergrade3 = #{record.usergrade3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userstudentnumber3 != null" >
+        userstudentnumber3 = #{record.userstudentnumber3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usersex3 != null" >
+        usersex3 = #{record.usersex3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usertel3 != null" >
+        usertel3 = #{record.usertel3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userteacher3 != null" >
+        userteacher3 = #{record.userteacher3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update groupbaoming
+    set baomingid = #{record.baomingid,jdbcType=INTEGER},
+      groupid = #{record.groupid,jdbcType=INTEGER},
+      usertruename1 = #{record.usertruename1,jdbcType=VARCHAR},
+      userpinyin1 = #{record.userpinyin1,jdbcType=VARCHAR},
+      userschool1 = #{record.userschool1,jdbcType=VARCHAR},
+      userdepartment1 = #{record.userdepartment1,jdbcType=VARCHAR},
+      usermajor1 = #{record.usermajor1,jdbcType=VARCHAR},
+      usergrade1 = #{record.usergrade1,jdbcType=VARCHAR},
+      userstudentnumber1 = #{record.userstudentnumber1,jdbcType=VARCHAR},
+      usersex1 = #{record.usersex1,jdbcType=VARCHAR},
+      usertel1 = #{record.usertel1,jdbcType=VARCHAR},
+      userteacher1 = #{record.userteacher1,jdbcType=VARCHAR},
+      usertruename2 = #{record.usertruename2,jdbcType=VARCHAR},
+      userpinyin2 = #{record.userpinyin2,jdbcType=VARCHAR},
+      userschool2 = #{record.userschool2,jdbcType=VARCHAR},
+      userdepartment2 = #{record.userdepartment2,jdbcType=VARCHAR},
+      usermajor2 = #{record.usermajor2,jdbcType=VARCHAR},
+      usergrade2 = #{record.usergrade2,jdbcType=VARCHAR},
+      userstudentnumber2 = #{record.userstudentnumber2,jdbcType=VARCHAR},
+      usersex2 = #{record.usersex2,jdbcType=VARCHAR},
+      usertel2 = #{record.usertel2,jdbcType=VARCHAR},
+      userteacher2 = #{record.userteacher2,jdbcType=VARCHAR},
+      usertruename3 = #{record.usertruename3,jdbcType=VARCHAR},
+      userpinyin3 = #{record.userpinyin3,jdbcType=VARCHAR},
+      userschool3 = #{record.userschool3,jdbcType=VARCHAR},
+      userdepartment3 = #{record.userdepartment3,jdbcType=VARCHAR},
+      usermajor3 = #{record.usermajor3,jdbcType=VARCHAR},
+      usergrade3 = #{record.usergrade3,jdbcType=VARCHAR},
+      userstudentnumber3 = #{record.userstudentnumber3,jdbcType=VARCHAR},
+      usersex3 = #{record.usersex3,jdbcType=VARCHAR},
+      usertel3 = #{record.usertel3,jdbcType=VARCHAR},
+      userteacher3 = #{record.userteacher3,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tata.groupbaoming.domain.GroupbaomingVO" >
+    update groupbaoming
+    <set >
+      <if test="groupid != null" >
+        groupid = #{groupid,jdbcType=INTEGER},
+      </if>
+      <if test="usertruename1 != null" >
+        usertruename1 = #{usertruename1,jdbcType=VARCHAR},
+      </if>
+      <if test="userpinyin1 != null" >
+        userpinyin1 = #{userpinyin1,jdbcType=VARCHAR},
+      </if>
+      <if test="userschool1 != null" >
+        userschool1 = #{userschool1,jdbcType=VARCHAR},
+      </if>
+      <if test="userdepartment1 != null" >
+        userdepartment1 = #{userdepartment1,jdbcType=VARCHAR},
+      </if>
+      <if test="usermajor1 != null" >
+        usermajor1 = #{usermajor1,jdbcType=VARCHAR},
+      </if>
+      <if test="usergrade1 != null" >
+        usergrade1 = #{usergrade1,jdbcType=VARCHAR},
+      </if>
+      <if test="userstudentnumber1 != null" >
+        userstudentnumber1 = #{userstudentnumber1,jdbcType=VARCHAR},
+      </if>
+      <if test="usersex1 != null" >
+        usersex1 = #{usersex1,jdbcType=VARCHAR},
+      </if>
+      <if test="usertel1 != null" >
+        usertel1 = #{usertel1,jdbcType=VARCHAR},
+      </if>
+      <if test="userteacher1 != null" >
+        userteacher1 = #{userteacher1,jdbcType=VARCHAR},
+      </if>
+      <if test="usertruename2 != null" >
+        usertruename2 = #{usertruename2,jdbcType=VARCHAR},
+      </if>
+      <if test="userpinyin2 != null" >
+        userpinyin2 = #{userpinyin2,jdbcType=VARCHAR},
+      </if>
+      <if test="userschool2 != null" >
+        userschool2 = #{userschool2,jdbcType=VARCHAR},
+      </if>
+      <if test="userdepartment2 != null" >
+        userdepartment2 = #{userdepartment2,jdbcType=VARCHAR},
+      </if>
+      <if test="usermajor2 != null" >
+        usermajor2 = #{usermajor2,jdbcType=VARCHAR},
+      </if>
+      <if test="usergrade2 != null" >
+        usergrade2 = #{usergrade2,jdbcType=VARCHAR},
+      </if>
+      <if test="userstudentnumber2 != null" >
+        userstudentnumber2 = #{userstudentnumber2,jdbcType=VARCHAR},
+      </if>
+      <if test="usersex2 != null" >
+        usersex2 = #{usersex2,jdbcType=VARCHAR},
+      </if>
+      <if test="usertel2 != null" >
+        usertel2 = #{usertel2,jdbcType=VARCHAR},
+      </if>
+      <if test="userteacher2 != null" >
+        userteacher2 = #{userteacher2,jdbcType=VARCHAR},
+      </if>
+      <if test="usertruename3 != null" >
+        usertruename3 = #{usertruename3,jdbcType=VARCHAR},
+      </if>
+      <if test="userpinyin3 != null" >
+        userpinyin3 = #{userpinyin3,jdbcType=VARCHAR},
+      </if>
+      <if test="userschool3 != null" >
+        userschool3 = #{userschool3,jdbcType=VARCHAR},
+      </if>
+      <if test="userdepartment3 != null" >
+        userdepartment3 = #{userdepartment3,jdbcType=VARCHAR},
+      </if>
+      <if test="usermajor3 != null" >
+        usermajor3 = #{usermajor3,jdbcType=VARCHAR},
+      </if>
+      <if test="usergrade3 != null" >
+        usergrade3 = #{usergrade3,jdbcType=VARCHAR},
+      </if>
+      <if test="userstudentnumber3 != null" >
+        userstudentnumber3 = #{userstudentnumber3,jdbcType=VARCHAR},
+      </if>
+      <if test="usersex3 != null" >
+        usersex3 = #{usersex3,jdbcType=VARCHAR},
+      </if>
+      <if test="usertel3 != null" >
+        usertel3 = #{usertel3,jdbcType=VARCHAR},
+      </if>
+      <if test="userteacher3 != null" >
+        userteacher3 = #{userteacher3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where baomingid = #{baomingid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tata.groupbaoming.domain.GroupbaomingVO" >
+    update groupbaoming
+    set groupid = #{groupid,jdbcType=INTEGER},
+      usertruename1 = #{usertruename1,jdbcType=VARCHAR},
+      userpinyin1 = #{userpinyin1,jdbcType=VARCHAR},
+      userschool1 = #{userschool1,jdbcType=VARCHAR},
+      userdepartment1 = #{userdepartment1,jdbcType=VARCHAR},
+      usermajor1 = #{usermajor1,jdbcType=VARCHAR},
+      usergrade1 = #{usergrade1,jdbcType=VARCHAR},
+      userstudentnumber1 = #{userstudentnumber1,jdbcType=VARCHAR},
+      usersex1 = #{usersex1,jdbcType=VARCHAR},
+      usertel1 = #{usertel1,jdbcType=VARCHAR},
+      userteacher1 = #{userteacher1,jdbcType=VARCHAR},
+      usertruename2 = #{usertruename2,jdbcType=VARCHAR},
+      userpinyin2 = #{userpinyin2,jdbcType=VARCHAR},
+      userschool2 = #{userschool2,jdbcType=VARCHAR},
+      userdepartment2 = #{userdepartment2,jdbcType=VARCHAR},
+      usermajor2 = #{usermajor2,jdbcType=VARCHAR},
+      usergrade2 = #{usergrade2,jdbcType=VARCHAR},
+      userstudentnumber2 = #{userstudentnumber2,jdbcType=VARCHAR},
+      usersex2 = #{usersex2,jdbcType=VARCHAR},
+      usertel2 = #{usertel2,jdbcType=VARCHAR},
+      userteacher2 = #{userteacher2,jdbcType=VARCHAR},
+      usertruename3 = #{usertruename3,jdbcType=VARCHAR},
+      userpinyin3 = #{userpinyin3,jdbcType=VARCHAR},
+      userschool3 = #{userschool3,jdbcType=VARCHAR},
+      userdepartment3 = #{userdepartment3,jdbcType=VARCHAR},
+      usermajor3 = #{usermajor3,jdbcType=VARCHAR},
+      usergrade3 = #{usergrade3,jdbcType=VARCHAR},
+      userstudentnumber3 = #{userstudentnumber3,jdbcType=VARCHAR},
+      usersex3 = #{usersex3,jdbcType=VARCHAR},
+      usertel3 = #{usertel3,jdbcType=VARCHAR},
+      userteacher3 = #{userteacher3,jdbcType=VARCHAR}
+    where baomingid = #{baomingid,jdbcType=INTEGER}
+  </update>
+</mapper>

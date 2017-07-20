@@ -1,0 +1,106 @@
+#mask2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(7,17,27,0.5);
+}
+.team-members {
+	position: fixed;
+	top: 15%;
+	left: 22%;
+	width: 50rem;
+	height: 35rem;
+	border-radius: 0.2rem;
+	box-shadow: 0.5rem 0 1rem rgba(7,17,27,0.2);
+	background-color: rgb(255,255,255);
+	text-align: center;
+	z-index: 3;
+}
+
+/*关闭按钮*/
+.team-members .close-btn a {
+	text-decoration: none;
+	float: right;
+	margin: 1rem;
+}
+
+/*队员详细信息轮播*/
+.team-members .slider .slider-i img {
+	display: block;
+	width: 12rem;
+	height: 12rem;
+	border-radius: 50%;
+	margin: 0 auto 1rem;
+}
+
+/*姓名*/
+.team-members .slider .slider-i .mem-name {
+	display: inline-block;
+	font-size: 1.5rem;
+    font-weight: 400;
+    font-family: '方正中等线_GBK';
+    color: rgb(65, 68, 83);
+}
+
+/*性别 意向 学院*/
+.team-members .slider .slider-i ul li {
+	display: inline-block;
+	margin: 0.8rem;
+}
+.team-members .slider .slider-i ul li i {
+	color: rgba(65, 68, 83,.7);
+}
+.team-members .slider .slider-i ul li span {
+	font-size: 0.8rem;
+    font-weight: 400;
+    font-family: '方正中等线_GBK';
+    color: rgb(65, 68, 83);
+}
+
+/*个人简介*/
+.team-members .slider .slider-i .about-myself {
+	width: 50rem;
+	height: 7rem;
+	overflow: hidden;
+}
+.team-members .slider .slider-i .about-myself p {
+	font-size: 0.5rem;
+    font-weight: 400;
+    font-family: '方正中等线_GBK';
+    color: rgb(65, 68, 83);
+	text-align: left;
+	text-indent: 2rem;
+	margin: 0 5rem 0.5rem;
+	line-height: 1.2rem;
+}
+
+/*邀请按钮*/
+.team-members .slider .slider-i input[type="button"] {
+	width: 10rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    color: rgb(255,255,255);
+    background-color: rgb(0,160,233);
+    border: none;
+    margin: 0.8rem;
+}
+
+/*轮播图切换按钮*/
+.team-members .slider .ctrl ul {
+	margin: 0.5rem;
+}
+.team-members .slider .ctrl ul li{
+	display: inline-block;
+	width: 0.9rem;
+	height: 0.9rem;
+	border-radius: 50%;
+	cursor: pointer;
+	margin-right: 0.5rem;
+	background-color: rgb(65,68,83);
+}
+.team-members .slider .ctrl ul li:hover {
+	background-color: rgba(65,68,83,.6);
+}
+.team-members .slider .ctrl ul .li-active {
+	background-color: rgba(65,68,83,.6);
+}

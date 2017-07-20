@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tata.gerenbaoming.dao.GerenbaomingVOMapper" >
+  <resultMap id="BaseResultMap" type="com.tata.gerenbaoming.domain.GerenbaomingVO" >
+    <id column="gerenbaomingid" property="gerenbaomingid" jdbcType="INTEGER" />
+    <result column="usertruename" property="usertruename" jdbcType="VARCHAR" />
+    <result column="userpinyin" property="userpinyin" jdbcType="VARCHAR" />
+    <result column="userschool" property="userschool" jdbcType="VARCHAR" />
+    <result column="userdepartment" property="userdepartment" jdbcType="VARCHAR" />
+    <result column="usermajor" property="usermajor" jdbcType="VARCHAR" />
+    <result column="usergrade" property="usergrade" jdbcType="VARCHAR" />
+    <result column="userstudentnumber" property="userstudentnumber" jdbcType="VARCHAR" />
+    <result column="usersex" property="usersex" jdbcType="VARCHAR" />
+    <result column="usertel" property="usertel" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    gerenbaomingid, usertruename, userpinyin, userschool, userdepartment, usermajor, 
+    usergrade, userstudentnumber, usersex, usertel
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tata.gerenbaoming.domain.GerenbaomingVOExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from gerenbaoming
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null" >
+      <if test="offset != null" >
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null" >
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from gerenbaoming
+    where gerenbaomingid = #{gerenbaomingid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from gerenbaoming
+    where gerenbaomingid = #{gerenbaomingid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tata.gerenbaoming.domain.GerenbaomingVOExample" >
+    delete from gerenbaoming
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tata.gerenbaoming.domain.GerenbaomingVO" useGeneratedKeys="true" keyProperty="id" >
+    insert into gerenbaoming (gerenbaomingid, usertruename, userpinyin, 
+      userschool, userdepartment, usermajor, 
+      usergrade, userstudentnumber, usersex, 
+      usertel)
+    values (#{gerenbaomingid,jdbcType=INTEGER}, #{usertruename,jdbcType=VARCHAR}, #{userpinyin,jdbcType=VARCHAR}, 
+      #{userschool,jdbcType=VARCHAR}, #{userdepartment,jdbcType=VARCHAR}, #{usermajor,jdbcType=VARCHAR}, 
+      #{usergrade,jdbcType=VARCHAR}, #{userstudentnumber,jdbcType=VARCHAR}, #{usersex,jdbcType=VARCHAR}, 
+      #{usertel,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tata.gerenbaoming.domain.GerenbaomingVO" useGeneratedKeys="true" keyProperty="id" >
+    insert into gerenbaoming
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gerenbaomingid != null" >
+        gerenbaomingid,
+      </if>
+      <if test="usertruename != null" >
+        usertruename,
+      </if>
+      <if test="userpinyin != null" >
+        userpinyin,
+      </if>
+      <if test="userschool != null" >
+        userschool,
+      </if>
+      <if test="userdepartment != null" >
+        userdepartment,
+      </if>
+      <if test="usermajor != null" >
+        usermajor,
+      </if>
+      <if test="usergrade != null" >
+        usergrade,
+      </if>
+      <if test="userstudentnumber != null" >
+        userstudentnumber,
+      </if>
+      <if test="usersex != null" >
+        usersex,
+      </if>
+      <if test="usertel != null" >
+        usertel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gerenbaomingid != null" >
+        #{gerenbaomingid,jdbcType=INTEGER},
+      </if>
+      <if test="usertruename != null" >
+        #{usertruename,jdbcType=VARCHAR},
+      </if>
+      <if test="userpinyin != null" >
+        #{userpinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="userschool != null" >
+        #{userschool,jdbcType=VARCHAR},
+      </if>
+      <if test="userdepartment != null" >
+        #{userdepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="usermajor != null" >
+        #{usermajor,jdbcType=VARCHAR},
+      </if>
+      <if test="usergrade != null" >
+        #{usergrade,jdbcType=VARCHAR},
+      </if>
+      <if test="userstudentnumber != null" >
+        #{userstudentnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="usersex != null" >
+        #{usersex,jdbcType=VARCHAR},
+      </if>
+      <if test="usertel != null" >
+        #{usertel,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tata.gerenbaoming.domain.GerenbaomingVOExample" resultType="java.lang.Integer" >
+    select count(*) from gerenbaoming
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update gerenbaoming
+    <set >
+      <if test="record.gerenbaomingid != null" >
+        gerenbaomingid = #{record.gerenbaomingid,jdbcType=INTEGER},
+      </if>
+      <if test="record.usertruename != null" >
+        usertruename = #{record.usertruename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userpinyin != null" >
+        userpinyin = #{record.userpinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userschool != null" >
+        userschool = #{record.userschool,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userdepartment != null" >
+        userdepartment = #{record.userdepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usermajor != null" >
+        usermajor = #{record.usermajor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usergrade != null" >
+        usergrade = #{record.usergrade,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userstudentnumber != null" >
+        userstudentnumber = #{record.userstudentnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usersex != null" >
+        usersex = #{record.usersex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.usertel != null" >
+        usertel = #{record.usertel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update gerenbaoming
+    set gerenbaomingid = #{record.gerenbaomingid,jdbcType=INTEGER},
+      usertruename = #{record.usertruename,jdbcType=VARCHAR},
+      userpinyin = #{record.userpinyin,jdbcType=VARCHAR},
+      userschool = #{record.userschool,jdbcType=VARCHAR},
+      userdepartment = #{record.userdepartment,jdbcType=VARCHAR},
+      usermajor = #{record.usermajor,jdbcType=VARCHAR},
+      usergrade = #{record.usergrade,jdbcType=VARCHAR},
+      userstudentnumber = #{record.userstudentnumber,jdbcType=VARCHAR},
+      usersex = #{record.usersex,jdbcType=VARCHAR},
+      usertel = #{record.usertel,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tata.gerenbaoming.domain.GerenbaomingVO" >
+    update gerenbaoming
+    <set >
+      <if test="usertruename != null" >
+        usertruename = #{usertruename,jdbcType=VARCHAR},
+      </if>
+      <if test="userpinyin != null" >
+        userpinyin = #{userpinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="userschool != null" >
+        userschool = #{userschool,jdbcType=VARCHAR},
+      </if>
+      <if test="userdepartment != null" >
+        userdepartment = #{userdepartment,jdbcType=VARCHAR},
+      </if>
+      <if test="usermajor != null" >
+        usermajor = #{usermajor,jdbcType=VARCHAR},
+      </if>
+      <if test="usergrade != null" >
+        usergrade = #{usergrade,jdbcType=VARCHAR},
+      </if>
+      <if test="userstudentnumber != null" >
+        userstudentnumber = #{userstudentnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="usersex != null" >
+        usersex = #{usersex,jdbcType=VARCHAR},
+      </if>
+      <if test="usertel != null" >
+        usertel = #{usertel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where gerenbaomingid = #{gerenbaomingid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tata.gerenbaoming.domain.GerenbaomingVO" >
+    update gerenbaoming
+    set usertruename = #{usertruename,jdbcType=VARCHAR},
+      userpinyin = #{userpinyin,jdbcType=VARCHAR},
+      userschool = #{userschool,jdbcType=VARCHAR},
+      userdepartment = #{userdepartment,jdbcType=VARCHAR},
+      usermajor = #{usermajor,jdbcType=VARCHAR},
+      usergrade = #{usergrade,jdbcType=VARCHAR},
+      userstudentnumber = #{userstudentnumber,jdbcType=VARCHAR},
+      usersex = #{usersex,jdbcType=VARCHAR},
+      usertel = #{usertel,jdbcType=VARCHAR}
+    where gerenbaomingid = #{gerenbaomingid,jdbcType=INTEGER}
+  </update>
+</mapper>
